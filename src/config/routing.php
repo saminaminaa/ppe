@@ -8,7 +8,7 @@ function getPage($db){
     $lesPages['apropos']="actionApropos";
     $lesPages['validation']="actionValidation";
     
-    if(isset($_GET['page'])){
+    if(isset($_GET['page'])){  #pr ne pas tt afficher sur la page d'accueil
         $page = $_GET['page'];
         }
         else{

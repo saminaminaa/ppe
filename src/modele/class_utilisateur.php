@@ -42,8 +42,8 @@ class Utilisateur{    //majuscule importante pour le nom d'une classe
            }
            return $this->select->fetchAll();   //fetchAll pour obtenir ttes les lignes
            }
-  
- }
+}  
+ 
 
 
 

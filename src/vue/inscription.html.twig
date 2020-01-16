@@ -25,33 +25,43 @@
 {% else %}
     
     <div style="padding-left:20% ; padding-right:20% ; padding-top: 2%">
-    <form>
+    <form class="form-signin" action="index.php?page=inscription" method="post" enctype="application/x-www-form-urlencoded">
+        <!methode="post" c pour que les données ne se mettent pas dans l'url
+            action="index.php?page=inscription" signifie que les données du formulaire vont être envoyées sur la page « index.php » et précisément sur le contrôleur « inscription ». 
+            name = permet de donner un nom au composant, ce qui va permettre de récupérer les données par la suite. Nous avons besoin de donner un nom à la zone de saisie de l'email, des deux mots de passe, le rôle et enfin au bouton.->
         <div align="center">
         <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
         </div>
         <div class="form-group row">
+            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email">
+            </div>
+        </div>
+            <div class="form-group row">
+            <label for="inputMdp" class="col-sm-2 col-form-label">Mot de passe</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputMdr" name="inputPassword" placeholder="Mot de passe">
+            </div>
+        </div>
+         <div class="form-group row">
+            <label for="inputMdp" class="col-sm-2 col-form-label">Confirmation du mot de passe</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputMdr" name="inputPassword2" placeholder="Mot de passe">
+            </div>
+         </div>
+        <div class="form-group row">
             <label for="inputNom" class="col-sm-2 col-form-label">Nom</label>
             <div class="col-sm-10">
-                <input type="nom" class="form-control" id="inputNom" placeholder="Nom">
+                <input type="nom" class="form-control" id="inputNom" name="inputNom" placeholder="Nom">
             </div>
         </div>
         <div class="form-group row">
             <label for="inputPrenom" class="col-sm-2 col-form-label">Prénom</label>
             <div class="col-sm-10">
-                <input type="prenom" class="form-control" id="inputPrenom" placeholder="Prenom">
+                <input type="prenom" class="form-control" id="inputPrenom" name=" inputPrenom" placeholder="Prenom">
             </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
-            <div class="col-sm-10">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="inputMdp" class="col-sm-2 col-form-label">Mot de passe</label>
-            <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputMdr" placeholder="Mot de passe">
-            </div>
+        
         </div>
         <!--
         <fieldset class="form-group">
@@ -105,15 +115,16 @@
                 </div>
         -->
    
-            </div>
+            
         </fieldset>
-        <select class="form-control">
+        <select class="form-control" name='role'>    <!attention il faut aussi 1name pr le role->
             <option value="1">Developpeur</option>
             <option value="2">Administrateur</option>
         </select>
         <div class="form-group row">
             <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">s'inscrire</button>
+                <button type="submit" name="btInscrire" class="btn btn-primary">s'inscrire</button> <!-- ne pas oublier le name pr chaque element c tres important
+                                                                                                    submit c pr pouvoir envoyer ensuite donc ne pas oublier nn plus-->
             </div>
         </div>
     </form>
