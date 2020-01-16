@@ -6,6 +6,7 @@ function getPage($db){
     $lesPages['inscription'] = "actionInscription";
     $lesPages['profil']="actionProfil";
     $lesPages['apropos']="actionApropos";
+    $lesPages['validation']="actionValidation";
     
     if(isset($_GET['page'])){
         $page = $_GET['page'];
