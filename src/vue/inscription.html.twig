@@ -6,7 +6,7 @@
 
 {% block contenu %}
     
-    
+    <div style="padding-left:20% ; padding-right:20% ; padding-top: 2%">
     {% if form.valide is defined %}
     {% if form.valide == true %}
         <h1 class="h3 mb-3 font-weight-normal">Inscription réussie</h1>
@@ -14,14 +14,14 @@
         {% if form.role == 1 %}
             <h1 class="h3 mb-3 font-weight-normal">Vous êtes administrateur du site</h1>
         {% else %}
-            <h1 class="h3 mb-3 font-weight-normal">Vous êtes un client du site </h1>
+            <h1 class="h3 mb-3 font-weight-normal">Vous êtes un développeur </h1>
         {% endif %}
     {% else %}
         <h1 class="h3 mb-3 font-weight-normal">Echec de l'inscription</h1>
         <h1 class="h3 mb-3 font-weight-normal">Erreur : {{form.message}}</h1>
         <h1 class="h3 mb-3 font-weight-normal"><a href="index.php?page=inscription">Retourner sur la page d'inscription</a></h1>
     {% endif %}
-    
+    </div>
 {% else %}
     
     <div style="padding-left:20% ; padding-right:20% ; padding-top: 2%">

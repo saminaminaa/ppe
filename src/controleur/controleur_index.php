@@ -8,7 +8,7 @@ function actionApropos($twig){
 }
     
     
-    function actionConnexion($twig, $db){
+function actionConnexion($twig, $db){
      $form = array();
      $form['valide'] = true;
      if (isset($_POST['btConnecter'])){
@@ -34,6 +34,16 @@ function actionApropos($twig){
       }
           }
     echo $twig->render('connexion.html.twig', array('form'=>$form)); 
+}
+
+function actionMaintenance($twig){
+    echo $twig->render('maintenance.html.twig', array());
+}
+
+function actionDeconnexion($twig){
+ session_unset();
+ session_destroy();
+ header("Location:index.php"); 
 }
 
 ?>
