@@ -4,7 +4,9 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> {% endblock %}
 {% block title %} {{ parent() }} Profil {% endblock %}
 
+
 {% block contenu %} <!tjrs mettre block contenu sinn ça marche pas!>
+    
 
 <div class="container emp-profile" style="padding-top:3%">
             <form method="post">
@@ -21,7 +23,7 @@
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        Kshiti Ghelani
+                                        {{ unUtilisateur.prenom }} {{ unUtilisateur.nom }}
                                     </h5>
                                     <h6>
                                         Web Developer and Designer
@@ -38,7 +40,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Modifier le profil"/>
                     </div>
                 </div>
                 <div class="row">
@@ -48,6 +50,7 @@
                             <a href="index.php?page=modifnom">Modifier le nom</a><br/>
                             <a href="index.php?page=modifemail">Modifier l'email</a><br/>
                             <a href="index.php?page=modifmdp">Modifier le mot de passe</a>
+                            <a href="index.php?page=modifprofil&email={{ u.email }}">Modifier le profil</a>
                             <p>SKILLS</p>
                             <a href="">Web Designer</a><br/>
                             <a href="">Web Developer</a><br/>
@@ -56,15 +59,17 @@
                             <a href="">PHP, .Net</a><br/>
                         </div>
                     </div>
+                            
+     
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Identifiant</label>
+                                                <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti123</p>
+                                                <p>{{ unUtilisateur.email }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -72,31 +77,23 @@
                                                 <label>Nom</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti Ghelani</p>
+                                                <p>{{ unUtilisateur.nom }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Email</label>
+                                                <label>Prenom</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Telephone</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>123 456 7890</p>
+                                                <p>{{ unUtilisateur.prenom }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Profession</label>
+                                                <label>Fonction sur le site</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Web Developer and Designer</p>
+                                                <p>{{ unUtilisateur.libellerole }}</p> <!--mettre mm chose que dans le select-->
                                             </div>
                                         </div>
                             </div>

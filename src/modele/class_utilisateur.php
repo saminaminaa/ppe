@@ -9,12 +9,15 @@ class Utilisateur{    //majuscule importante pour le nom d'une classe
     
     private $select;
     
+    private $selectByEmail;
+    
     public function __construct($db){ //construct=constructeur de la classe
         $this->db = $db ;    //$this=nous parlons à l'attribut de la classe
         $this->insert = $db->prepare("insert into utilisateur(email, mdp, nom, prenom, idRole) values (:email, :mdp, :nom, :prenom, :role)");   // Étape 2 (on met les valeurs qu'on veut insérer)le code est ici en SQL
         $this->connect = $db->prepare("select email, idRole, mdp from utilisateur where email=:email");  
         $this->select = $db->prepare("select email, idRole, nom, prenom, r.libelle as libellerole from utilisateur u, role r where u.idRole = r.id order by nom");   // libelle pr la jointure avc role //as c pr renommé
-        
+        $this->selectByEmail = $db->prepare("select email, nom, prenom, r.libelle as libellerole from role r, utilisateur u where email=:email and r.id=u.idRole"); // attention chaque requete est independante donc mm si elle a été renommé avant elle n'est pas renommé pr la requete suivante
+
         
     }
  public function insert($email, $mdp, $role, $nom, $prenom){ // Étape 3 
@@ -42,6 +45,15 @@ class Utilisateur{    //majuscule importante pour le nom d'une classe
            }
            return $this->select->fetchAll();   //fetchAll pour obtenir ttes les lignes
            }
+           
+           
+     public function selectByEmail($email){
+         $this->selectByEmail->execute(array(':email'=>$email));
+         if ($this->selectByEmail->errorCode()!=0){
+             print_r($this->selectByEmail->errorInfo());
+             }
+             return $this->selectByEmail->fetch();
+             }       
 }  
  
 
