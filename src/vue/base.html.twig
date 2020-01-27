@@ -24,14 +24,13 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.php?page=base">Accueil <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="index.php?page=inscription">Inscription</a>
-      </li>
+      
      
       {%if session.login is defined %}
                             <li class="nav-item"><a class="nav-link" href="index.php?page=deconnexion">Se déconnecter</a></li>
                             {% else %} 
                             <li class="nav-item"><a class="nav-link" href="index.php?page=connexion">Se connecter</a></li>
+                            <li class="nav-item"><a class="nav-link" href="index.php?page=inscription">Inscription</a></li>
                             {% endif %}
     </li>
     {%if session.login is defined %}
