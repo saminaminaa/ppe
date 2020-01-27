@@ -6,20 +6,18 @@
     {% if form.valide is defined %}
     {% if form.valide == true %}
         
-        <div align ="center" style="padding-left:20% ; padding-right:20% ; padding-top: 5%"> <!pr mettre le formulaire au milieu, soit en pixel soit en %--!>
-            
- <form class="form-signin" method="POST">
-     <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
-     <label for="inputEmail" class="sr-only">Email:</label>
-     <input type="email" id="inputEmail" name="inputEmail" class="form-control"
-            placeholder="Email" required autofocus>
-     <label for="inputPassword" class="sr-only">Mot de passe:</label>
-     <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Mot de passe" required>
-     <button class="btn btn-lg btn-primary btn-block" type="submit" name="btConnecter">Se connecter</button>
-     <a href="index.php?page=inscription">S'inscrire </a>
 
- </form>
-        </div>
+            
+            <form class="form-signin" method="POST">
+                <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
+                <label for="inputEmail" class="sr-only">Email:</label>
+                 <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email" required autofocus>
+                 <label for="inputPassword" class="sr-only">Mot de passe:</label>
+                 <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Mot de passe" required>
+                 <button class="btn btn-lg btn-primary btn-block" type="submit" name="btConnecter">Se connecter</button>
+                 <a href="index.php?page=inscription">S'inscrire </a>
+            </form>
+
         
         {% else %}
  
