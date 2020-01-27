@@ -21,13 +21,51 @@ function actionInscription($twig, $db){
             $form['valide'] = false;
             $form['message'] = 'Problème d\'insertion dans la table utilisateur ';
             }
-            } 
-         
-         $form['email'] = $inputEmail;
-         $form['role'] = $role;
+        }
+
+        $form['email'] = $inputEmail;
+        $form['role'] = $role;
+
+        $email_b = 'n.lecherf@gmail.com';
+    
+    
+    if (filter_var($email_b, FILTER_VALIDATE_EMAIL)) {
+        echo "L'adresse email '$email_b' est considérée comme valide.";
+    } else {
+        echo "L'adresse email '$email_b' est considérée comme invalide.";
+    }
+
+    $adresse='http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?page=validation';
+        // Le message
+       
+        $message = "
+     <html>
+      <head>
+       <title>Bonjour Noémie,</title>
+      </head>
+      <body>
+       <br> Vous possedez un compte sur le site Devdev avec l'adresse email n.lecherf@gmail.com </br>
+       <br> Il est important que vous validiez votre email. Sans cette validation, votre compte sera supprimé au bout de 24h </br>
+       <br><a href= \"$adresse\" > Cliquez ici pour valider votre adresse mail </a></br>
+       <br> Cordialement, </br>
+       <br> L'équipe Devdev </br>
+      </body>
+     </html>
+     ";
+
+         // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
+     $headers[] = 'MIME-Version: 1.0';
+     $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+
+
+// Envoi du mail
+         mail('n.lecherf@gmail.com', 'Validation adresse mail', $message, implode("\r\n", $headers));
+    }
+
     
         
-         } 
+         
     echo $twig->render('inscription.html.twig', array('form'=>$form)); 
 }
 ?>
