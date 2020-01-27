@@ -13,8 +13,8 @@ function getPage($db){
     $lesPages['modifmdp']="actionModifMdp;0";
     $lesPages['maintenance']="actionMaintenance;0";
     $lesPages['deconnexion']="actionDeconnexion;0";
-    $lesPages['modifprofil']="actionModifprofil;0";
-
+    $lesPages['modifprofil']="actionModifProfil;0";
+    $lesPages['modiflangages']="actionModifLangages;0";
 
   if ($db != NULL) {
         if (isset($_GET['page'])) {  #pr ne pas tt afficher sur la page d'accueil

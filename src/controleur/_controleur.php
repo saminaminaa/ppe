@@ -6,4 +6,5 @@
     require_once 'controleur_modifnom.php';
     require_once 'controleur_modifemail.php';
     require_once 'controleur_modifmdp.php';
+require_once 'controleur_modiflangages.php';
 ?>
