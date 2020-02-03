@@ -15,8 +15,9 @@ function actionInscription($twig, $db){
          $form['message'] = 'Les mots de passe sont différents';
     }
     else{
+        $unique = uniqid();
         $utilisateur = new Utilisateur($db);  //pr mettre en memoire la variable utilisateur
-        $exec = $utilisateur->insert($inputEmail, password_hash($inputPassword, PASSWORD_DEFAULT), $role, $nom, $prenom);  //on lui donne different parametre récupéré dans le formulaire (methode insert(définie dans la classe))
+        $exec = $utilisateur->insert($inputEmail, password_hash($inputPassword, PASSWORD_DEFAULT), $role, $nom, $prenom, 0, $unique);  //on lui donne different parametre récupéré dans le formulaire (methode insert(définie dans la classe))
         if (!$exec){   //si l'execution a échoué                        //password_hash pr hacher le mdp
             $form['valide'] = false;
             $form['message'] = 'Problème d\'insertion dans la table utilisateur ';
@@ -35,16 +36,17 @@ function actionInscription($twig, $db){
         echo "L'adresse email '$email_b' est considérée comme invalide.";
     }
 
-    $adresse='http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?page=validation';
+    $adresse='http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?page=validation&email='.$email_b.'&unique='.$unique;
+    
+    
+   //email, lien unique (avc bon numero unique)
         // Le message
        
         $message = "
      <html>
-      <head>
-       <title>Bonjour Noémie,</title>
-      </head>
       <body>
-       <br> Vous possedez un compte sur le site Devdev avec l'adresse email n.lecherf@gmail.com </br>
+      <title>Bonjour {{ unUtilisateur.prenom }} {{ unUtilisateur.prenom }}</title>
+       <br> Vous possedez un compte sur le site Devdev avec l'adresse email {{ unUtilisateur.email }} </br>
        <br> Il est important que vous validiez votre email. Sans cette validation, votre compte sera supprimé au bout de 24h </br>
        <br><a href= \"$adresse\" > Cliquez ici pour valider votre adresse mail </a></br>
        <br> Cordialement, </br>
