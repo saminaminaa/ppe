@@ -4,38 +4,22 @@
 
 {% block contenu %}
 
-<div style="padding-left:20% ; padding-right:20% ; padding-top: 2%">
+
     <form class="form-signin" action="index.php?page=modifmdp" method="post" enctype="application/x-www-form-urlencoded">
-        <!methode="post" c pour que les données ne se mettent pas dans l'url
-        action="index.php?page=inscription" signifie que les données du formulaire vont être envoyées sur la page « index.php » et précisément sur le contrôleur « inscription ».
-        name = permet de donner un nom au composant, ce qui va permettre de récupérer les données par la suite. Nous avons besoin de donner un nom à la zone de saisie de l'email, des deux mots de passe, le rôle et enfin au bouton.->
-        <div align="center">
             <h1 class="h3 mb-3 font-weight-normal">Modifer les langages</h1>
+            <select class="form-control" name='role' id="role">    <!attention il faut aussi 1name pr le role->
+                <option value="1">HTML/CSS</option>
+                <option value="2">Python</option>
+                <option value="3">PHP</option>
+                <option value="4">Java Scipt</option>
+                <option value="5">Java</option>
+                <option value="6">C</option>
+                <option value="7">C#</option>
+                <option value="8">C++</option>
+            </select>
+            <button type="submit" name="btAjtLangages" class="btn btn-lg btn-primary btn-block">Ajouter le langage</button>
+            <button type="submit" name="btSuprLangages" class="btn btn-lg btn-primary btn-block">Supprimer le langage</button>
         </div>
-        <div class="form-group row">
 
-            <div class="col-sm-10">
-                <input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Mot de passe">
-            </div>
-            <div class="col-sm-10">
-
-                <select class="form-control" name='role' id="role">    <!attention il faut aussi 1name pr le role->
-                    <option value="1">HTML/CSS</option>
-                    <option value="2">Python</option>
-                    <option value="3">PHP</option>
-                    <option value="4">Java Scipt</option>
-                    <option value="5">Java</option>
-                    <option value="6">C</option>
-                    <option value="7">C#</option>
-                    <option value="8">C++</option>
-                </select>
-            </div>
-            <div class="col-sm-10">
-                <button type="submit" name="btAjtLangages" class="btn btn-lg btn-primary btn-block">Ajouter le langage</button>
-            </div>
-            <div class="col-sm-10">
-                <button type="submit" name="btSuprLangages" class="btn btn-lg btn-primary btn-block">Supprimer le langage</button>
-            </div>
-        </div>
 
             {% endblock %}
