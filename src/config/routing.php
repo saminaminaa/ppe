@@ -8,9 +8,6 @@ function getPage($db){
     $lesPages['profil']="actionProfil;0";
     $lesPages['apropos']="actionApropos;0";
     $lesPages['validation']="actionValidation;0";
-    $lesPages['modifemail']="actionModifEmail;0";
-    $lesPages['modifnom']="actionModifNom;0";
-    $lesPages['modifmdp']="actionModifMdp;0";
     $lesPages['maintenance']="actionMaintenance;0";
     $lesPages['deconnexion']="actionDeconnexion;0";
     $lesPages['modifprofil']="actionModifProfil;0";
