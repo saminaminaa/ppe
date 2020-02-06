@@ -5,9 +5,9 @@
 {% block contenu %}
 
 
-    <form class="form-signin" action="index.php?page=modifmdp" method="post" enctype="application/x-www-form-urlencoded">
+    <form class="form-signin" action="index.php?page=modiflangages" method="post" enctype="application/x-www-form-urlencoded">
             <h1 class="h3 mb-3 font-weight-normal">Modifer les langages</h1>
-            <select class="form-control" name='role' id="role">    <!attention il faut aussi 1name pr le role->
+            <select class="form-control" name='idLangage' id="idLangage">    <!attention il faut aussi 1name pr le role->
                 <option value="1">HTML/CSS</option>
                 <option value="2">Python</option>
                 <option value="3">PHP</option>
@@ -20,6 +20,7 @@
             <button type="submit" name="btAjtLangages" class="btn btn-lg btn-primary btn-block">Ajouter le langage</button>
             <button type="submit" name="btSuprLangages" class="btn btn-lg btn-primary btn-block">Supprimer le langage</button>
         </div>
-
-
+        
+     
+        
             {% endblock %}
