@@ -1,7 +1,7 @@
 <?php
 function actionModiflangages($twig, $db){
     $form=array();
-    //var_dump($_SESSION);
+    //var_dump($_SESSION); 
     // Si j'ai cliqué sur le bouton
     if (isset($_POST['btAjtLangages'])){
         // Je récupère les valeurs
@@ -11,7 +11,7 @@ function actionModiflangages($twig, $db){
           $form['valide'] = true;
            $code = new Code($db);  //pr mettre en memoire la variable utilisateur
         $exec = $code->insert($_SESSION['login'], $idLangage);  //on lui donne different parametre récupéré dans le formulaire (methode insert(définie dans la classe))
-        if (!$exec){   //si l'execution a échoué                        //password_hash pr hacher le mdp
+        if (!$exec){   //si l'execution a échoué                        //$_SESSION['login'] pour recup l'email de la personne connecté
             $form['valide'] = false;
             $form['message'] = 'Problème d\'insertion dans la table code ';
             }

@@ -11,7 +11,7 @@ class Code{    //majuscule importante pour le nom d'une classe
     public function __construct($db){ //construct=constructeur de la classe
         $this->db = $db ;    //$this=nous parlons à l'attribut de la classe
         $this->insert = $db->prepare("insert into code(idEmail, idLangage) values (:idEmail, :idLangage)");   // Étape 2 (on met les valeurs qu'on veut insérer)le code est ici en SQL
-        $this->select = $db->prepare("select idLangage from code c where c.idLangage = c.id order by nom");   // libelle pr la jointure avc role //as c pr renommé
+        $this->select = $db->prepare("select idLangage,l.libelle as langages from code c, langage l where c.idLangage = l.id order by idLangage");   // libelle pr la jointure avc role //as c pr renommé
 
         
     }
