@@ -23,13 +23,11 @@
                             <img class="img-fluid" alt="Responsive image" src="https://www.blogduwebdesign.com/wp-content/uploads/2019/06/bdw-image-fonds-ecran-1.jpg"/>
                         </div>
                         <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                            </div>
+                            
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" id="inputGroupFile01"
                                        aria-describedby="inputGroupFileAddon01">
-                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                <label class="custom-file-label" for="inputGroupFile01">Changer de photo de profil</label>
                             </div>
                         </div>
                         </div>
@@ -42,7 +40,7 @@
                                     <h6>
                                         Web Developer and Designer
                                     </h6>
-                                    <p>RANKINGS : <span>8/10</span></p>
+                                    <p>Date de dernière connexion : {{ unUtilisateur.date }} </p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profil</a>
@@ -107,9 +105,11 @@
   
    <li class="list-group-item">{{c.langages}}</li>
 {% endfor %}
+   <div class="list-group" style="padding-top:14%">
                                             <a class="btn btn-lg btn-primary btn-block" href="index.php?page=modiflangages">Modifier ou ajouter des langages</a>
                                             <!--<a href="index.php?page=modif-langages">Modifier et/ou ajouter des languages</a>-->
 </div>
+                                        </div>
                        
                                         </div>
                             </div>
