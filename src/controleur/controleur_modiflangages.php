@@ -20,7 +20,17 @@ function actionModiflangages($twig, $db){
     else{
         // Si je n'ai pas cliqué sur le bouton
     }    
-       
+        if(isset($_POST['btSuprimer'])){
+            $exec=$code->delete($_GET['id']);
+            if (!$exec){
+                $form['valide'] = false;
+                $form['message'] = 'Problème de suppression dans la table utilisateur';
+                }
+                else{
+                    $form['valide'] = true;
+                    $form['message'] = 'Langage supprimé avec succès';
+                    }
+                    }
 
          
     echo $twig->render('modif-langages.html.twig', array('form'=>$form)); 

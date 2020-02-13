@@ -5,4 +5,5 @@
     require_once 'controleur_modifprofil.php';
     require_once 'controleur_validation.php';
     require_once 'controleur_modiflangages.php';
+    require_once 'controleur_listeutilisateur.php';
 ?>
