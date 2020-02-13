@@ -4,6 +4,7 @@
 
 {% block contenu %}
 
+<<<<<<< HEAD
     {% if form.valide is defined %}
         {% if form.valide == true %}
             <h1>Le langage a bien été ajouté/supprimé</h1>
@@ -17,8 +18,12 @@
     {% else %}
 
 
+=======
+<div class="list-group" style="padding-left:30% ; padding-right:30% ; padding-top: 5%" >
+>>>>>>> fc07519ec20bfe4808966c13afe3d8cef2fcb088
     <form class="form-signin" action="index.php?page=modiflangages" method="post" enctype="application/x-www-form-urlencoded">
-            <h1 class="h3 mb-3 font-weight-normal">Modifer les langages</h1>
+            <h1 class="h3 mb-3 font-weight-normal" >Modifier les langages</h1>
+</div>
             <select class="form-control" name='idLangage' id="idLangage">    <!attention il faut aussi 1name pr le role->
                 <option value="1">HTML/CSS</option>
                 <option value="2">Python</option>
@@ -32,7 +37,12 @@
             <button type="submit" name="btAjtLangages" class="btn btn-lg btn-primary btn-block">Ajouter le langage</button>
             <button type="submit" name="btSuprLangages" class="btn btn-lg btn-primary btn-block">Supprimer le langage</button>
         </div>
+<<<<<<< HEAD
     {% endif %}
      
+=======
+        
+</div>
+>>>>>>> fc07519ec20bfe4808966c13afe3d8cef2fcb088
         
 {% endblock %}
