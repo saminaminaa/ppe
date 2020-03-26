@@ -7,12 +7,14 @@ class Code{    //majuscule importante pour le nom d'une classe
     
     private $select;
     
+    private $delete;
+    
     
     public function __construct($db){ //construct=constructeur de la classe
         $this->db = $db ;    //$this=nous parlons à l'attribut de la classe
         $this->insert = $db->prepare("insert into code(idEmail, idLangage) values (:idEmail, :idLangage)");   // Étape 2 (on met les valeurs qu'on veut insérer)le code est ici en SQL
         $this->select = $db->prepare("select idLangage,l.libelle as langages from code c, langage l where c.idLangage = l.id order by idLangage");   // libelle pr la jointure avc role //as c pr renommé
-
+        $this->delete = $db->prepare("delete from code where id=:id"); //supprimer 1angage
         
     }
  public function insert($idEmail, $idLangage){ // Étape 3 
@@ -34,7 +36,16 @@ class Code{    //majuscule importante pour le nom d'une classe
            return $this->select->fetchAll();   //fetchAll pour obtenir ttes les lignes
            }
                 
-             
+    public function delete($id){
+        $r = true;
+        $this->delete->execute(array(':id'=>$id));
+        if ($this->delete->errorCode()!=0){
+            print_r($this->delete->errorInfo());
+            $r=false;
+            }
+            return $r;
+            }
+         
              
              
 }  

@@ -18,7 +18,7 @@ $unUtilisateur = $utilisateur ->selectByEmail($email); //on appel l'outil
     else {
     
     echo 'utilisateur correct';
-    //var_dump($unUtilisateur);
+    var_dump($unUtilisateur);
     if ($unUtilisateur['idUnique']== $unique) {
         echo'numero identique';
         $utilisateur ->updateValider($email);
