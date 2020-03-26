@@ -7,7 +7,13 @@
 
 {% block contenu %} <!tjrs mettre block contenu sinn ça marche pas!>
     
-
+{% if form.valide is defined %}
+    {% if form.valide == true %}
+        <h1 class="h3 mb-3 font-weight-normal">{{ form.message }}</h1>
+    {% else %}
+        <h1 class="alert alert-danger" role="alert">{{ form.message }}</h1>
+    {% endif %}
+{% endif %}       
 
 <div class="container-fluid" style="padding-top:3%">
 <!--<div class="container emp-profile" style="padding-top:3%; padding-left:-10%; padding-right:-10%">
@@ -40,7 +46,7 @@
                                     <h6>
                                         Web Developer and Designer
                                     </h6>
-                                    <p>Date de dernière connexion : {{ unUtilisateur.date }} </p>
+                                    <p>Date du jour : {{ unUtilisateur.date }} </p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profil</a>
@@ -51,7 +57,7 @@
                             </ul>
                         <div class="tab-content" id="nav-tabContent"  style="padding-top:5%">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Modifier le profil"/>
+                            <a class="btn btn-lg btn-primary btn-block" href="index.php?page=modifprofil&email={{unUtilisateur.email}}">Modifier mon profil</a>
                             <div class="row" style="padding-top:5%">
                             <div class="col-md-6">
                                 <label>Email:</label>
@@ -101,15 +107,23 @@
   <li class="list-group-item list-group-item-action active">
     Liste de vos langages connus :
   </li>
-   {% for c in liste %}
-  
-       <li class="list-group-item">{{c.langages}}</li>
-       
-{% endfor %}
-   <div class="list-group" style="padding-top:14%">
+ <div class="table-responsive">
+       <form  class="form-signin" action="index.php?page=panier" method="post" enctype="application/x-www-form-urlencoded">
+        <table class="table table-hover table-striped"> 
+            
+            {% for c in liste %}
+                <tr><td>{{c.langages}}</td><td><div class="btn-group btn-group-lg"><a href="index.php?page=profil&idEmail={{c.idEmail}}&idLangage={{ c.idLangage }}">
+                                            <span class="glyphicon glyphicon-trash" ariahidden="true"></span></a></div></td><td>
+                                                <input type="checkbox" name="cocher[]" id="cocher[]" value="{{c.idEmail}}&{{ c.idLangage }}"/></td></tr>
+                                            
+            {% endfor %}  
+     </table>
+                                            <button class="btn btn-lg btn-primary btn-block" type="submit" name="btSupprimer">Supprimer</button>
                                             <a class="btn btn-lg btn-primary btn-block" href="index.php?page=modiflangages">Ajouter des langages</a>
                                             <!--<a href="index.php?page=modif-langages">Modifier et/ou ajouter des languages</a>-->
-</div>
+</form>
+ </div>
+
                                         </div>
                        
                                         </div>
