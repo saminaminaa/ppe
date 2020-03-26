@@ -1,65 +1,65 @@
 {% extends "base.html.twig" %}
 {% block style %}<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> {% endblock %}
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> {% endblock %}
 {% block title %} {{ parent() }} Profil {% endblock %}
 
 
 {% block contenu %} <!tjrs mettre block contenu sinn ça marche pas!>
-    
-
-
-<div class="container-fluid" style="padding-top:3%">
-<!--<div class="container emp-profile" style="padding-top:3%; padding-left:-10%; padding-right:-10%">
-            //<form method="post"> -->
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div>
 
 
 
-                        <div>
-                            <img class="img-fluid" alt="Responsive image" src="https://www.blogduwebdesign.com/wp-content/uploads/2019/06/bdw-image-fonds-ecran-1.jpg"/>
-                        </div>
-                        <div class="input-group">
-                            
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01"
-                                       aria-describedby="inputGroupFileAddon01">
-                                <label class="custom-file-label" for="inputGroupFile01">Changer de photo de profil</label>
-                            </div>
-                        </div>
+    <div class="container-fluid" style="padding-top:3%">
+        <!--<div class="container emp-profile" style="padding-top:3%; padding-left:-10%; padding-right:-10%">
+                    //<form method="post"> -->
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+
+
+
+                    <div>
+                        <img class="img-fluid" alt="Responsive image" src="https://www.blogduwebdesign.com/wp-content/uploads/2019/06/bdw-image-fonds-ecran-1.jpg"/>
+                    </div>
+                    <div class="input-group">
+
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01"
+                                   aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Changer de photo de profil</label>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                </div>
+            </div>
+            <div class="col-md-6">
 
-                                    <h5>
-                                        {{ unUtilisateur.prenom }} {{ unUtilisateur.nom }}
-                                    </h5>
-                                    <h6>
-                                        Web Developer and Designer
-                                    </h6>
-                                    <p>Date de dernière connexion : {{ unUtilisateur.date }} </p>
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profil</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Langages connus</a>
-                                </li>
-                            </ul>
-                        <div class="tab-content" id="nav-tabContent"  style="padding-top:5%">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <a class="btn btn-lg btn-primary btn-block" href="index.php?page=modifprofil&email={{unUtilisateur.email}}">Modifier mon profil</a>
-                            <div class="row" style="padding-top:5%">
+                <h5>
+                    {{ unUtilisateur.prenom }} {{ unUtilisateur.nom }}
+                </h5>
+                <h6>
+                    Web Developer and Designer
+                </h6>
+                <p>Date de dernière connexion : {{ unUtilisateur.date }} </p>
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Langages connus</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="nav-tabContent"  style="padding-top:5%">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <a class="btn btn-lg btn-primary btn-block" href="index.php?page=modifprofil&email={{unUtilisateur.email}}">Modifier mon profil</a>
+                        <div class="row" style="padding-top:5%">
                             <div class="col-md-6">
                                 <label>Email:</label>
                             </div>
                             <div class="col-md-6">
                                 <p>{{ unUtilisateur.email }}</p>
                             </div>
-                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <label>Nom:</label>
@@ -83,42 +83,42 @@
                             <div class="col-md-6">
                                 <p>{{ unUtilisateur.libellerole }}</p> <!--mettre mm chose que dans le select-->
                             </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" style="padding-top:5%" >
+
+
+
+                        <div class="list-group" style="padding-top:5%">
+
+
+
+                            <li class="list-group-item list-group-item-action active">
+                                Liste de vos langages connus :
+                            </li>
+                            {% for c in liste %}
+
+                                <li class="list-group-item">{{c.langages}}</li>
+
+                            {% endfor %}
+                            <div class="list-group" style="padding-top:14%">
+                                <a class="btn btn-lg btn-primary btn-block" href="index.php?page=modiflangages">Ajouter des langages</a>
+                                <!--<a href="index.php?page=modif-langages">Modifier et/ou ajouter des languages</a>-->
                             </div>
                         </div>
 
-
-                            
-                            
-                            
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab" style="padding-top:5%" >
-
-
-
-                                        <div class="list-group" style="padding-top:5%">
-                                            
- 
-                                            
-  <li class="list-group-item list-group-item-action active">
-    Liste de vos langages connus :
-  </li>
-   {% for c in liste %}
-  
-       <li class="list-group-item">{{c.langages}}</li>
-       
-{% endfor %}
-   <div class="list-group" style="padding-top:14%">
-                                            <a class="btn btn-lg btn-primary btn-block" href="index.php?page=modiflangages">Ajouter des langages</a>
-                                            <!--<a href="index.php?page=modif-langages">Modifier et/ou ajouter des languages</a>-->
-</div>
-                                        </div>
-                       
-                                        </div>
-   
-   
-                            </div>
                     </div>
+
+
                 </div>
-            </form>           
+            </div>
         </div>
+        </form>
+    </div>
 
 {% endblock %}
