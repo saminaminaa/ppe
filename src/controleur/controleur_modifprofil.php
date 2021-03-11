@@ -8,9 +8,9 @@ function actionModifprofil($twig, $db){
         if ($unUtilisateur!=null){
             //si l'utilisateur existe :
             $form['utilisateur'] = $unUtilisateur; //on stock la variable "form" avc la clé "utilisateur"
-             $role = new Role($db); //on instancie la class role (on la met en memoire)
-             $liste = $role->select(); //methode select qui contient tout les roles
-             $form['roles']=$liste; //on met dans notre liste la variable "form" avec la clé "roles"
+            $role = new Role($db); //on instancie la class role (on la met en memoire)
+            $liste = $role->select(); //methode select qui contient tout les roles
+            $form['roles']=$liste; //on met dans notre liste la variable "form" avec la clé "roles"
             
         }
             else{
