@@ -17,6 +17,7 @@ function getPage($db){
     $lesPages['reimdp']="actionReimdp;0";
     $lesPages['mentionlegales']="actionMentionlegales;0";
     $lesPages['statistique']="actionStatistique;0";
+    $lesPages['utilisateur-modif']="actionModifUtilisateur;0";
 
   if ($db != NULL) {
         if (isset($_GET['page'])) {  #pr ne pas tt afficher sur la page d'accueil

@@ -11,6 +11,7 @@ class Utilisateur {    //majuscule importante pour le nom d'une classe
     private $updateDate;
     private $update;
     private $updateMdp;
+    private $delete;
 
     public function __construct($db) { //construct=constructeur de la classe
         $this->db = $db;    //$this=nous parlons à l'attribut de la classe
@@ -22,6 +23,7 @@ class Utilisateur {    //majuscule importante pour le nom d'une classe
         $this->updateDate = $db->prepare("update utilisateur set date=:date where email=:email");
         $this->update = $db->prepare("update utilisateur set nom=:nom, prenom=:prenom, idRole=:role where email=:email");
         $this->updateMdp = $db->prepare("update utilisateur set mdp=:mdp where email=:email");
+        $this->delete = $db->prepare("delete from utilisateur where email=:email");
     }
 
     public function insert($email, $mdp, $role, $nom, $prenom, $valider, $unique, $date, $photo) { // Étape 3 
@@ -97,6 +99,16 @@ class Utilisateur {    //majuscule importante pour le nom d'une classe
             $r=false;
             }
             return $r;
-            }        
+            }
+            
+            public function delete($email) {
+                $r = true;
+                $this->delete->execute(array(':email' => $email));
+                if ($this->delete->errorCode() != 0) {
+                    print_r($this->delete->errorInfo());
+                    $r = false;
+                }
+                return $r;
+            }     
 
 }
