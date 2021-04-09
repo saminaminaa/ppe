@@ -15,7 +15,10 @@ function actionProfil($twig, $db){
               $exec=$code->delete($idEmail, $idLangage);
               if (!$exec){
                   $form['valide'] = false;
-                  $form['message'] = 'Problème de suppression dans la table code';             }        }    }
+                  $form['message'] = 'Problème de suppression dans la table code';             
+                }        
+            }    
+        }
     
     $liste = $code -> select();
     echo $twig->render('profil.html.twig', array('unUtilisateur'=> $unUtilisateur, 'liste'=>$liste, 'form'=>$form ));

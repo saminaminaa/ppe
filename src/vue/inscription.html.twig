@@ -42,10 +42,20 @@
                 <option value="1">Developpeur</option>
                 <option value="2">Administrateur</option>
             </select>
+            <select class="form-control" name="departements" id="departements">
+                <option value='0'>Votre région</option>
+            </select>
+            <select class="form-control" name="communes" id="communes">
+                <option value='0'>Votre commune</option>
+            </select>
             <button type="submit" name="btInscrire" class="btn btn-lg btn-primary btn-block">s'inscrire</button> <!-- ne pas oublier le name pr chaque element c tres important submit c pr pouvoir envoyer ensuite donc ne pas oublier nn plus-->
 </div>
         </form>
 
+        <div class="form-group row">
+
+
     
     {% endif %}
+    <script src="js/script.js"> </script>
 {% endblock %}
