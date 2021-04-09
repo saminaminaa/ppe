@@ -9,7 +9,7 @@ function actionInscription($twig, $db) {
         $nom = $_POST['inputNom'];
         $prenom = $_POST['inputPrenom'];
         $role = $_POST['role'];
-        $region = $_POST['departements'];
+        $departement = $_POST['departements'];
         $commune = $_POST['communes'];
 
         $form['valide'] = true;
@@ -20,7 +20,7 @@ function actionInscription($twig, $db) {
             $unique = uniqid();
             $datejour = date("Y-m-d");
             $utilisateur = new Utilisateur($db);  //pr mettre en memoire la variable utilisateur
-            $exec = $utilisateur->insert($inputEmail, password_hash($inputPassword, PASSWORD_DEFAULT), $role, $nom, $prenom, 0, $unique, $datejour, 0, $region, $commune);  //on lui donne different parametre récupéré dans le formulaire (methode insert(définie dans la classe))
+            $exec = $utilisateur->insert($inputEmail, password_hash($inputPassword, PASSWORD_DEFAULT), $role, $nom, $prenom, 0, $unique, $datejour, 0, $departement, $commune);  //on lui donne different parametre récupéré dans le formulaire (methode insert(définie dans la classe))
             if (!$exec) {   //si l'execution a échoué                        //password_hash pr hacher le mdp
                 $form['valide'] = false;
                 $form['message'] = 'Problème d\'insertion dans la table utilisateur ';

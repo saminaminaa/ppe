@@ -15,7 +15,7 @@ class Utilisateur {    //majuscule importante pour le nom d'une classe
 
     public function __construct($db) { //construct=constructeur de la classe
         $this->db = $db;    //$this=nous parlons à l'attribut de la classe
-        $this->insert = $db->prepare("insert into utilisateur(email, mdp, nom, prenom, idRole,valider, idUnique, date, photo, region, commune) values (:email, :mdp, :nom, :prenom, :role, :valider, :idUnique, :date, :photo, :region, :commune)");   // Étape 2 (on met les valeurs qu'on veut insérer)le code est ici en SQL
+        $this->insert = $db->prepare("insert into utilisateur(email, mdp, nom, prenom, idRole,valider, idUnique, date, photo, departement, commune) values (:email, :mdp, :nom, :prenom, :role, :valider, :idUnique, :date, :photo, :departement, :commune)");   // Étape 2 (on met les valeurs qu'on veut insérer)le code est ici en SQL
         $this->connect = $db->prepare("select email, idRole, mdp, valider from utilisateur where email=:email");
         $this->select = $db->prepare("select email, idRole, nom, prenom, date, photo, r.libelle as libellerole from utilisateur u, role r where u.idRole = r.id order by nom");   // libelle pr la jointure avc role //as c pr renommé
         $this->selectByEmail = $db->prepare("select email, nom, prenom, valider, idUnique,date, r.libelle as libellerole from role r, utilisateur u where email=:email and r.id=u.idRole"); // attention chaque requete est independante donc mm si elle a été renommé avant elle n'est pas renommé pr la requete suivante
@@ -26,9 +26,9 @@ class Utilisateur {    //majuscule importante pour le nom d'une classe
         $this->delete = $db->prepare("delete from utilisateur where email=:email");
     }
 
-    public function insert($email, $mdp, $role, $nom, $prenom, $valider, $unique, $date, $photo, $region, $commune) { // Étape 3 
+    public function insert($email, $mdp, $role, $nom, $prenom, $valider, $unique, $date, $photo, $departement, $commune) { // Étape 3 
         $r = true;
-        $this->insert->execute(array(':email' => $email, ':mdp' => $mdp, ':role' => $role, ':nom' => $nom, ':prenom' => $prenom, ':valider' => $valider, ':idUnique' => $unique, ':date' => $date, ':photo'=>$photo , ':region'=>$region, ':commune'=>$commune));
+        $this->insert->execute(array(':email' => $email, ':mdp' => $mdp, ':role' => $role, ':nom' => $nom, ':prenom' => $prenom, ':valider' => $valider, ':idUnique' => $unique, ':date' => $date, ':photo'=>$photo , ':departement'=>$departement, ':commune'=>$commune));
         if ($this->insert->errorCode() != 0) {
             print_r($this->insert->errorInfo());
             $r = false;
