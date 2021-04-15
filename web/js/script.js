@@ -1,13 +1,18 @@
 $(document).ready(function() {
 
+    let codeRegion;
     let codeDepartement;
+    let regions = document.getElementById("regions");
     let departements = document.getElementById("departements");
     let communes = document.getElementById("communes");
+    departements.style.display = 'none'
     communes.style.display = 'none'
 
-    function ajaxDepartements(){
+
+    //Regions
+    function ajaxRegions(){
         var request= $.ajax({
-            url: "https://geo.api.gouv.fr/departements?fields=nom,code", 
+            url: "https://geo.api.gouv.fr/regions?fields=nom,code", 
             method:"GET",
             dataType: "json",
             beforeSend: function( xhr ) {
@@ -17,13 +22,45 @@ $(document).ready(function() {
 
 
             $.each(msg, function(index,e){
-                departements.innerHTML += "<option value="+ e.code +" >" + e.nom + "</option>";
+                regions.innerHTML += "<option value="+ e.code +" >" + e.nom + "</option>";
             });
 
         });
         // Fonction qui se lance lorsque l’accès au web service provoque une erreur
         request.fail(function( jqXHR, textStatus ) {
             alert ('erreur');
+        });
+    }
+
+    ajaxRegions();
+
+    regions.addEventListener("change",function(){
+        codeRegion = regions.value;
+        ajaxDepartements();
+    })
+
+
+    //Departements
+    function ajaxDepartements(){
+        var request= $.ajax({
+            url: "https://geo.api.gouv.fr/regions/"+ codeRegion +"/departements?fields=nom,code", 
+            method:"GET",
+            dataType: "json",
+            beforeSend: function( xhr ) {
+                xhr.overrideMimeType( "application/json; charset=utf-8" );
+            }});
+        request.done(function( msg ) {
+            departements.style.display = 'block'
+            departements.innerHTML = " <option value='0'>Votre departement</option>";
+
+            $.each(msg, function(index,e){
+                departements.innerHTML += "<option value="+ e.code +" >" + e.nom + "</option>";
+            });
+
+        });
+        // Fonction qui se lance lorsque l’accès au web service provoque une erreur
+        request.fail(function( jqXHR, textStatus ) {
+            //alert ('erreur');
         });
     }
 

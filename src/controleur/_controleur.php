@@ -9,4 +9,5 @@
     require_once 'controleur_mdpoublie.php';
     require_once 'controleur_reimdp.php';
     require_once 'controleur_statistique.php';
+    require_once 'controleur_region.php';
 ?>
