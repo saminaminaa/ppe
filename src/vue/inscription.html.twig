@@ -16,8 +16,8 @@
         {% else %}
             <h1 class="h3 mb-3 font-weight-normal">Vous êtes administrateur du site</h1>
         {% endif %}
-        <h1 class="h3 mb-3 font-weight-normal">Un email de validation vous a été envoyé</h1>
-        <h1 class="h3 mb-3 font-weight-normal">Veuillez valider votre email dans les 24h qui suivent ou votre compte sera supprimé</h1>
+        {#<h1 class="h3 mb-3 font-weight-normal">Un email de validation vous a été envoyé</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Veuillez valider votre email dans les 24h qui suivent ou votre compte sera supprimé</h1>  #}
     {% else %}
         <h1 class="h3 mb-3 font-weight-normal">Echec de l'inscription</h1>
         <h1 class="h3 mb-3 font-weight-normal">Erreur : {{form.message}}</h1>
@@ -38,6 +38,7 @@
             <input type="password" class="form-control" id="inputMdp" name="inputPassword2" placeholder="Mot de passe">
             <input type="nom" class="form-control" id="inputNom" name="inputNom" placeholder="Nom">
             <input type="prenom" class="form-control" id="inputPrenom" name=" inputPrenom" placeholder="Prenom">
+            <!--<input type="hidden" class="form-control" id="inputValide" name=" inputValide" placeholder="Valide" value="1">-->
             <select class="form-control" name='role' style="align-center">    <!attention il faut aussi 1name pr le role->
                 <option value="1">Developpeur</option>
                 <option value="2">Administrateur</option>
