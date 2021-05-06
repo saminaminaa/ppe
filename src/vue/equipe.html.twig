@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+{% block style %}<link href="css/style-signin.css" rel="stylesheet"> {% endblock %}
+{% block title %} {{ parent() }} Ajouter une équipe {% endblock %}
+
+{% block contenu %}
+        
+        <form class="form-signin" method="POST">
+
+           <div align ="center" style="padding-left:10% ; padding-right:10% ; padding-top: 5%">
+
+            <h1 class="h3 mb-3 font-weight-normal">Ajouter une équipe</h1>
+
+            <label for="inputLibelle" class="sr-only">Libelle :</label>
+
+            <input type="libelle" id="inputLibelle" name="inputLibelle" class="form-control" placeholder="Nom de l'équipe" required autofocus>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit" name="btEquipe">Confirmer</button>
+
+            </div>
+
+        </form>
+{% endblock %} 

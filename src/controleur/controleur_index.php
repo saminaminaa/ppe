@@ -21,26 +21,20 @@ function actionConnexion($twig, $db) {
         $date = date("Y-m-d");
         $exec = $utilisateur->updateDate($inputEmail, $date);
         if ($unUtilisateur != null) {
-            //l'utilisateur existe
             if (!password_verify($inputPassword, $unUtilisateur['mdp'])) {
-                //si le mdp n'est pas valide
                 $form['valide'] = false;
                 $form['message'] = "Login ou mot de passe incorrect";
             } else {
-                //si le mdp est valide
                 if ($unUtilisateur['valider'] == 1) {
-                    //si l'email a bien été validé
                     $_SESSION['login'] = $inputEmail;
                     $_SESSION['role'] = $unUtilisateur['idRole'];
                     header("Location:index.php");
                 } else {
-                    //si le mdp n'est pas valide
                     $form['valide'] = false;
                     $form['message'] = "Votre email n'a pas été validé";
                 }
             }
         } else {
-            //si l'utilisateur n'existe pas
             $form['valide'] = false;
             $form['message'] = "Login ou mot de passe incorrect";
         }

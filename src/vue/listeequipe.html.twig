@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+{% block style %}<link href="css/style-signin.css" rel="stylesheet"> {% endblock %}
+{% block title %} {{parent()}} Liste des équipe {% endblock %}
+
+{% block contenu %}
+<table class="table">
+  <thead class="thead-light">
+  <tr>
+   <th scope="col">Email</th>
+   <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for e in liste %}
+  <tr>
+    <td>{{e.libelle}}</td>
+    <td><a href="index.php?page=modifequipe&id={{e.id}}"><i class="material-icons" style="color:black">create</i></a></td>
+  </tr>
+  {% endfor %}
+  </tbody>
+ </table>
+
+{% endblock %}
+

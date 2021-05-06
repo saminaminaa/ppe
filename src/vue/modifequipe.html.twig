@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+{% block style %}<link href="css/style-signin.css" rel="stylesheet"> {% endblock %}
+{% block title %} {{parent()}} Liste des équipe {% endblock %}
+
+{% block contenu %}
+<table class="table">
+  <thead class="thead-light">
+  <tr>
+   <th scope="col">Nom</th>
+   <th scope="col">Prenom</th>
+   <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for e in liste %}
+  <tr>
+    <td>{{e.nom}}</td>
+    <td>{{e.prenom}}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+ </table>
+
+ <select class="form-control" name='selectUser' id='selectUser' style="align-center">
+ </select>
+
+<script src="js/appelapi.js"> </script>
+{% endblock %}

@@ -9,8 +9,6 @@ function connect($config){
             $db = NULL;
             }
             return $db;
-            }
-            
-            
-            ?>
+            }          
+?>
 

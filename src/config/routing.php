@@ -13,6 +13,10 @@ function getPage($db){
     $lesPages['modifprofil']="actionModifProfil;0";
     $lesPages['modiflangages']="actionModifLangages;0";
     $lesPages['listeutilisateur']="actionListeutilisateur;1";
+    $lesPages['equipe']="actionEquipe;0";
+    $lesPages['listeequipe']="actionListeEquipe;0";
+    $lesPages['modifequipe']="actionModifEquipe;0";
+    $lesPages['utilisateurws'] = "actionUtilisateurWs;0";
 
   if ($db != NULL) {
         if (isset($_GET['page'])) {  #pr ne pas tt afficher sur la page d'accueil

@@ -11,7 +11,6 @@ function actionModifprofil($twig, $db){
              $role = new Role($db); //on instancie la class role (on la met en memoire)
              $liste = $role->select(); //methode select qui contient tout les roles
              $form['roles']=$liste; //on met dans notre liste la variable "form" avec la clé "roles"
-            
         }
             else{
                 //si l'utilisateur n'existe pas

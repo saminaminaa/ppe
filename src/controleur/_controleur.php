@@ -6,4 +6,5 @@
     require_once 'controleur_validation.php';
     require_once 'controleur_modiflangages.php';
     require_once 'controleur_listeutilisateur.php';
+    require_once 'controleur_equipe.php';
 ?>
