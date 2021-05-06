@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+{% block style %}<link href="css/style-signin.css" rel="stylesheet"> {% endblock %}
+{% block title %} {{parent()}} Statistique {% endblock %}
+
+{% block contenu %}
+    
+
+<br><br>
+<div class="panel panel-default" style="text-align: center">
+    <!-- Default panel contents -->
+    <h1>Statistiques</h1>
+    <br>
+    <h3>Nombre d'utilisateurs par role</h3><br>
+  <!-- Table -->
+  <div class="table-responsive">
+      <table class="table table-hover table-striped">
+          <tr><th>Role</th><th>Nombre d'utilisateurs ayant ce role</th></th></tr>
+          
+ 
+  {% for r in liste %}
+      
+      <tr><td>{{r.libelle}}</td><td>{{r.NbrUser}}</td></tr> 
+ 
+  {% endfor %}
+  
+  
+  
+ 
+  </table>
+  </div>
+</div>
+ {% endblock %}

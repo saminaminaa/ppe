@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+{% block style %}<link href="css/style-signin.css" rel="stylesheet"> {% endblock %}
+{% block title %} {{ parent() }} Mot de passe oublié {% endblock %}
+
+
+{% block contenu %}
+    
+    {% if form.valide is defined %}
+    {% if form.valide == true %}
+        <h1 class="h3 mb-3 font-weight-normal">Un mail de réinitialisation du mot de passe vous a été envoyé</h1>
+        <h1 class="h3 mb-3 font-weight-normal">A l'adresse email suivante : {{form.email}}</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Veuillez vérifier vos mails</h1>
+      
+    {% else %}
+        <h1 class="h3 mb-3 font-weight-normal">Echec, cette adresse email n'existe pas</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Erreur : {{form.message}}</h1>
+        <h1 class="h3 mb-3 font-weight-normal"><a href="index.php?page=connexion">Retourner sur la page de connexion</a></h1>
+    {% endif %}
+
+{% else %}
+
+<form class="form-signin" method="post">
+        <!methode="post" c pour que les données ne se mettent pas dans l'url
+            action="index.php?page=inscription" signifie que les données du formulaire vont être envoyées sur la page « index.php » et précisément sur le contrôleur « inscription ». 
+            name = permet de donner un nom au composant, ce qui va permettre de récupérer les données par la suite. Nous avons besoin de donner un nom à la zone de saisie de l'email, des deux mots de passe, le rôle et enfin au bouton.->
+<div align ="center" style="padding-left:10% ; padding-right:10% ; padding-top: 5%">
+            <h1 class="h3 mb-3 font-weight-normal">Mot de passe oublié</h1>
+            <h2 class="h3 mb-3 font-weight-normal">Rentrez ici votre adresse email</h2>
+            <input type="email" class="form-control" id="inputEmail" name="inputEmail" placeholder="Email">
+        
+            <button type="submit" name="btEnvoyer" class="btn btn-lg btn-primary btn-block">Envoyer</button> <!-- ne pas oublier le name pr chaque element c tres important submit c pr pouvoir envoyer ensuite donc ne pas oublier nn plus-->
+</div>
+        </form>
+    {% endif %}
+    
+    {% endblock %}

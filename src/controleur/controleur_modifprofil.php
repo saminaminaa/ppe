@@ -42,7 +42,7 @@ function actionModifprofil($twig, $db){
                     }
                 }
                     echo $twig->render('modifprofil.html.twig', array('form'=>$form));
-                    }
+            }
 
 
 

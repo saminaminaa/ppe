@@ -8,6 +8,10 @@ function actionApropos($twig) {
     echo $twig->render('apropos.html.twig', array());
 }
 
+function actionMentionlegales($twig) {
+    echo $twig->render('mentionlegales.html.twig', array());
+}
+
 function actionConnexion($twig, $db) {
     $form = array();
     $form['valide'] = true;

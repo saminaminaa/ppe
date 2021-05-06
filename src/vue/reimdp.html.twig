@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+{% block style %}<link href="css/style-signin.css" rel="stylesheet"> {% endblock %}
+{% block title %} {{ parent() }} Réinitialiser mon mot de passe {% endblock %}
+
+{% block contenu %}
+<div style="padding-top: 5%">
+
+        {% if form.utilisateur is defined %}
+            {% if form.utilisateur != null %}                                                                  
+                <form class="form-signin" action="index.php?page=reimdp" method="post"
+                      enctype="application/x-www-form-urlencoded">
+                    <div style="padding-left: 30%">
+                    <h1 class="h3 mb-3 font-weight-normal">Reinitialisation du mot de passe</h1>
+                    </div>
+                    <label for="inputPassword" class="sr-only">Modifier le mot de passe:</label>
+                    <input type="password" id="inputPassword" name="mdp" class="form-control" placeholder="Modifier le mot de passe">
+                    <label for="inputPassword2" class="sr-only">Confirmation du mot de passe:</label>
+                    <input type="password" id="inputPassword2" name="mdp2" class="form-control" placeholder="Confirmation mot de passe">
+                  
+                              <input type="hidden" name="email" value="{{ form.utilisateur.email }}"/> 
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" name="btReinitialiser">Reinitialiser</button>
+
+                </form>
+
+            {% else %}
+                <h1 class="alert alert-danger" role="alert">{{ form.message }}</h1>
+                <h1 class="h3 mb-3 font-weight-normal"><a href="index.php?page=connexion">Retourner sur la page de connexion</a></h1>
+                {% endif %}
+                    {% else %}
+                        {% if form.valide == true %}
+                            <h1 class="h3 mb-3 font-weight-normal">{{ form.message }} </h1>
+                            <h1 class="h3 mb-3 font-weight-normal"><a href="index.php?page=connexion">Retourner sur la page de connexion</a></h1>
+                        {% else %}
+                            <h1 class="alert alert-danger" role="alert">{{ form.message }}</h1>
+                            <h1 class="h3 mb-3 font-weight-normal"><a href="index.php?page=connexion">Retourner sur la page de connexion</a></h1>
+                        {% endif %}
+                        {% endif %}  
+                        </div>
+
+        {% endblock %}
+

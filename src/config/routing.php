@@ -17,6 +17,12 @@ function getPage($db){
     $lesPages['listeequipe']="actionListeEquipe;0";
     $lesPages['modifequipe']="actionModifEquipe;0";
     $lesPages['utilisateurws'] = "actionUtilisateurWs;0";
+    $lesPages['mdpoublie']="actionMdpoublie;0";
+    $lesPages['reimdp']="actionReimdp;0";
+    $lesPages['mentionlegales']="actionMentionlegales;0";
+    $lesPages['statistique']="actionStatistique;0";
+    $lesPages['utilisateur-modif']="actionModifUtilisateur;0";
+    $lesPages['regions']="actionRegion;0";
 
   if ($db != NULL) {
         if (isset($_GET['page'])) {  #pr ne pas tt afficher sur la page d'accueil

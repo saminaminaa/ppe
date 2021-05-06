@@ -9,6 +9,9 @@ function actionInscription($twig, $db) {
         $nom = $_POST['inputNom'];
         $prenom = $_POST['inputPrenom'];
         $role = $_POST['role'];
+        $departement = $_POST['departements'];
+        $commune = $_POST['communes'];
+        $region = $_POST['regions'];
 
         $form['valide'] = true;
         if ($inputPassword != $inputPassword2) {
@@ -18,7 +21,7 @@ function actionInscription($twig, $db) {
             $unique = uniqid();
             $datejour = date("Y-m-d");
             $utilisateur = new Utilisateur($db);  //pr mettre en memoire la variable utilisateur
-            $exec = $utilisateur->insert($inputEmail, password_hash($inputPassword, PASSWORD_DEFAULT), $role, $nom, $prenom, 0, $unique, $datejour, 0);  //on lui donne different parametre récupéré dans le formulaire (methode insert(définie dans la classe))
+            $exec = $utilisateur->insert($inputEmail, password_hash($inputPassword, PASSWORD_DEFAULT), $role, $nom, $prenom, 1, $unique, $datejour, 0, $departement, $commune, $region);  //on lui donne different parametre récupéré dans le formulaire (methode insert(définie dans la classe))
             if (!$exec) {   //si l'execution a échoué                        //password_hash pr hacher le mdp
                 $form['valide'] = false;
                 $form['message'] = 'Problème d\'insertion dans la table utilisateur ';
@@ -31,11 +34,11 @@ function actionInscription($twig, $db) {
         $email_b = 'n.lecherf@gmail.com';
 
 
-        if (filter_var($email_b, FILTER_VALIDATE_EMAIL)) {
+        /* if (filter_var($email_b, FILTER_VALIDATE_EMAIL)) {
             echo "L'adresse email '$email_b' est considérée comme valide.";
         } else {
             echo "L'adresse email '$email_b' est considérée comme invalide.";
-        }
+        } */
 
         $adresse = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'] . '?page=validation&email=' . $form['email'] . '&unique=' . $unique;
 

@@ -3,6 +3,7 @@
 {% block title %} {{parent()}} Utilisateurs {% endblock %}
 
 {% block contenu %}
+<<<<<<< HEAD
  <table class="table">
   <thead class="thead-light">
   <tr>
@@ -24,6 +25,22 @@
     <td><a href="index.php?page=modif-utilisateur&email={{u.email}}"><i class="material-icons" style="color:black">create</i></a></td>
     <td><a href="index.php?page=utilisateur&email={{u.email}}"><i class="material-icons" style="color:black">delete_sweep</i></a></td>
    </tr>
+    
+<div class="panel panel-default" style="text-align:center"><br>
+    <!-- Default panel contents -->
+    <h1>Liste des utilisateurs</h1><br>
+    
+  <!-- Table -->
+  <div class="table-responsive" style="text-align:center">
+      <table class="table table-hover table-striped" style="text-align:center">
+          <tr style="text-align:center"><th>Email</th><th>Nom</th><th>Prénom</th><th>Date de dernière connexion</th><th></th><th></th></tr>
+          
+ 
+  {% for u in liste %}
+      
+      <tr><td>{{u.email}}</td><td>{{u.nom}}</td ><td>{{u.prenom}}</td ><td>{{u.date|date("d/M/Y")}}</td ><td><div class="btn-group btn-group-lg"><a href="index.php?page=utilisateur-modif&email={{ u.email }}"><i class="fa fa-pencil" aria-hidden="true"></i></a></div></td><td><div class="btn-group btn-group-lg"><a href="index.php?page=listeutilisateur&email={{ u.email }}"><i class="fa fa-trash" aria-hidden="true"></i></a></div></td></tr> 
+ 
+
   {% endfor %}
   </tbody>
  </table>
